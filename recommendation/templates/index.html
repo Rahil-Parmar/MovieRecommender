@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../static/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <title>Movie Recommender</title>
+  </head>
+  <body>
+    <section class="hero-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="hero-caption">
+              <h1>Movie Recommender System</h1>
+              <div class="h-search-form">
+                <form action="/recommend" method="post">
+                  <input
+                    type="search"
+                    name="movie"
+                    id="movie"
+                    placeholder="Type Movie Name"
+                  />
+                  <button>
+                    <ion-icon
+                      class="bi bi-search"
+                      name="search-outline"
+                    ></ion-icon>
+                  </button>
+                  <div id="movielist"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    $(document).ready(function () {
+      $("#movie").keyup(function () {
+        var query = $(this).val();
+        if (query != "") {
+          $.ajax({
+            url: "/searchKeyword",
+            method: "POST",
+            data: { query: query },
+            success: function (data) {
+              $("#movielist").fadeIn();
+              $("#movielist").html(data);
+            },
+          });
+        } else {
+          $("#movielist").fadeOut();
+          $("#movielist").html("");
+        }
+      });
+      $(document).on("click", "li", function () {
+        $("#movie").val($(this).text());
+        $("#movielist").fadeOut();
+      });
+    });
+  </script>
+</html>

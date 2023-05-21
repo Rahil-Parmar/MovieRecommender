@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../static/search.css" />
+    <title>Movie Recommender System</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+  </head>
+  <body>
+    <section class="hero-area">
+      <a href="/"><span class="material-symbols-outlined"> home </span></a>
+
+      <div class="wrapper">
+        <div class="container">
+          <div class="result-container">
+            <div class="result-grid" id="result-grid">
+              <!-- movie information here -->
+              <div class="movie-poster">
+                <img src="{{data.poster}}" alt="movie poster" />
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">{{data.title}}</h3>
+                <h2 class="movie-tagline">{{data.tagline}}</h2>
+                <ul class="movie-misc-info">
+                  <li class="rated">Ratings: PG-13</li>
+                  <li class="released">Released: {{data.release}}</li>
+                </ul>
+                <p class="genre">
+                  <b>Genre:</b> {% for genre in data.genres %}| {{genre}} {%
+                  endfor%}|
+                </p>
+
+                <p class="actors">
+                  <b>Actors: </b>{% for actor in data.cast %}| {{actor}} {%
+                  endfor%}|
+                </p>
+                <p class="plot"><b>Plot:</b> {{data.overciew}}</p>
+                <p class="language"><b>Language:</b> {{data.language}}</p>
+                <p class="runtime"><b>Runtime:</b> {{data.runtime}} min</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rec-wrapper">
+        <div class="row">
+          {% for i in range(5) %}
+          <div class="col-md-3">
+            <div class="movie-poster-2">
+              <a href="/recommend?movie={{data.rec_title[i]}}">
+                <img src="{{data.rec_posters[i]}}" alt="The Batman" />
+              </a>
+            </div>
+
+            <a href="/recommend?movie={{data.rec_title[i]}}">
+              <h4>{{data.rec_title[i]}}</h4></a
+            >
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,100&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+ul {
+  cursor: pointer;
+  margin-left: 20%;
+}
+
+li {
+  background: rgba(255, 255, 255, 0.2);
+  width: 75%;
+  margin-top: 2px;
+  padding: 5px 10px;
+  border-width: 5px;
+  border-radius: 50px;
+  border: none;
+  position: center;
+  color: #d1cdcd;
+  backdrop-filter: blur(4px);
+}
+
+.hero-area {
+  background-image: url("./image.jpg");
+  padding-top: 200px;
+  padding-bottom: 500px;
+  background-size: contain;
+  background-position: fixed;
+  /* z-index: 1; */
+}
+
+.hero-caption h1 {
+  font-size: 50px;
+  font-weight: 400;
+  color: #fff;
+  font-style: "Arial", serif;
+  margin-top: 20px;
+}
+
+.h-search-form {
+  width: 100%;
+  position: relative;
+}
+.hero-caption input::placeholder {
+  color: #d1cdcd;
+  text-align: center;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+}
+.h-search-form input {
+  width: 60%;
+  padding: 0px 30px;
+  border-radius: 50px;
+  border: none;
+  margin-top: 40px;
+  font-weight: 500;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  text-transform: capitalize;
+  position: relative;
+  color: #fff;
+  height: 50px;
+  backdrop-filter: blur(4px);
+  margin-bottom: 10px;
+}
+
+.h-search-form button {
+  position: absolute;
+  right: 180px;
+  height: 40px;
+  border: none;
+  color: #fff;
+  margin-top: 40px;
+  background: black;
+  top: 6px;
+  border-radius: 50px;
+  width: 40px;
+}
+
+.h-search-form button:hover {
+  position: absolute;
+  right: 180px;
+  height: 40px;
+  border: none;
+  color: #fff;
+  background: black;
+  top: 6px;
+  border-radius: 50px;
+  width: 40px;
+}

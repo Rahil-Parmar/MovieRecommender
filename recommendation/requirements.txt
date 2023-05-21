@@ -1,0 +1,5 @@
+Flask
+gunicorn
+Pandas
+requests
+datetime
