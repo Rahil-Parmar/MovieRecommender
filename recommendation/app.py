@@ -60,7 +60,7 @@ def searchKeyWord():
 #Get poster for the movie
 def getPoster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=87c9b727d697cfb29a87266e5098a948&language=en-US".format(movie_id)
-    data = requests.get(url)
+    data = requests.get(url, timeout=60)
     data = data.json()
     poster_path = data['poster_path']
     full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
@@ -70,7 +70,7 @@ def getPoster(movie_id):
 def getData(movie_id):
     movie_details_url = TMDB_API_URL + "movie/" + movie_id +"?api_key=" + TMDB_API_KEY
   # Make a request to the TMDB API endpoint.
-    response = requests.get(movie_details_url)
+    response = requests.get(movie_details_url, timeout=60)
     movie_det = {}
     # Check if the request was successful.
     if response.status_code == 200:
