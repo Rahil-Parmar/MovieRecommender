@@ -1,16 +1,16 @@
 from flask import Flask, render_template,request
 import pandas as pd
-import pickle
 import requests
 import json
 import datetime
+import fickling
 
 app = Flask(__name__)
 app.config['TEMPLATES_FOLDER'] = 'templates'
-movie_data = pickle.load(open('movie_dict.pkl','rb'))
+movie_data = fickling.load(open('movie_dict.pkl','rb'))
 movie_data = pd.DataFrame(movie_data)
 movie_title = movie_data['Title'].apply(lambda x:x.lower())
-similarity = pickle.load(open('similarity.pkl','rb'))
+similarity = fickling.load(open('similarity.pkl','rb'))
 similarity = pd.DataFrame(similarity)
 TMDB_API_URL = "https://api.themoviedb.org/3/"
 TMDB_API_KEY = "87c9b727d697cfb29a87266e5098a948"
