@@ -3,3 +3,4 @@ gunicorn
 Pandas
 requests
 datetime
+security==1.3.1
